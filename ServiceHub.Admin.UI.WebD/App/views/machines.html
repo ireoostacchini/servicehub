@@ -1,0 +1,28 @@
+﻿
+ 
+<!--
+    <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>
+-->
+<section id="machines-view" class="view">
+  
+    <div class="row">
+        <div class="span2">
+            <ul data-bind="foreach: machines">
+
+
+                <li class="route-left" data-bind="css: { 'route-active': IsSelected() }">
+                    <a data-bind="text: FriendlyName, attr: { href: Url }"></a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="span2">
+            <!-- ko if: selected -->
+            <!--we could have used afterRender: showSelectedElement as a template param
+                instead of fadeVisible:true - see showSelectedElement inthe VM  -->
+
+            <!-- /ko -->
+        </div>
+    </div>
+</section>

@@ -1,0 +1,89 @@
+﻿<Window x:Class="ServiceHub.UI.Win.Views.MainView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:conv="clr-namespace:ServiceHub.UI.Converters"
+        xmlns:uc="clr-namespace:ServiceHub.UI.UserControls"
+        Title="ServiceHub"
+        Style="{StaticResource window}">
+
+    <Grid x:Name="grid"
+          Style="{StaticResource grid}">
+
+        <Label Name="formHeader"
+               Style="{StaticResource formHeader}"
+               Content="ServiceHub" />
+        <DataGrid Style="{StaticResource dataGrid}"
+                  Name="dataGrid1"
+                  ItemsSource="{Binding MachineServiceManagerViewModels}"
+                  SelectionChanged="dataGrid1_SelectionChanged">
+
+            <DataGrid.Columns>
+
+                <DataGridTextColumn  Header="Machine"
+                                     Width="150"
+                                     ElementStyle="{StaticResource dataGridTextColumn}"
+                                     Binding="{Binding MachineName}" />
+                <DataGridTextColumn Header="Service"
+                                    Width="200"
+                                    ElementStyle="{StaticResource dataGridTextColumn}"
+                                    Binding="{Binding ServiceName}" />
+
+                <DataGridTextColumn Header="Status"
+                                    Width="75"
+                                    ElementStyle="{StaticResource dataGridStatusTextColumn}"
+                                    Binding="{Binding StatusName}" />
+                <DataGridTemplateColumn Header="Restart"
+                                        HeaderStyle="{StaticResource restartColumnHeader}"
+                                        Width="75">
+
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Button Style="{StaticResource restartButton}"
+                                        Command="{Binding RelativeSource={RelativeSource Self}, Path=DataContext.Restart}"
+                                        CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" />
+
+                                <uc:Loader Style="{StaticResource restartLoader}" />
+                            </Grid>
+
+                        </DataTemplate>
+
+                    </DataGridTemplateColumn.CellTemplate>
+
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Label  Name="lblRestartSelected"
+                Content="Restart selected services"
+                Margin="25,630,0,0"
+                Width="146" />
+
+        <Button Margin="175,634,0,0"
+                Name="btnRestartSelected"
+                Command="{Binding RestartSelected}"
+                CommandParameter="{Binding RelativeSource={RelativeSource Self}, Path=DataContext}" />
+
+        <Label Name="lblHideRunningServices"
+               Content="Hide running services"
+               Margin="25,665,0,0" />
+
+        <CheckBox Name="chkHideRunningServices"
+                  Margin="175,671,0,0"
+                  IsChecked="{Binding FilterViewModel.HideRunningServices}" />
+
+        <Label Content="Filter by service"
+               Margin="25,700,0,0"
+               Name="lblService" />
+
+        <ComboBox Name="cboService"
+                  Margin="175,703,0,0"
+                  Width="190"
+                  ItemsSource="{Binding FilterViewModel.Services}"
+                  DisplayMemberPath="FriendlyName"
+                  SelectedValuePath="ServiceId"
+                  SelectedItem="{Binding FilterViewModel.SelectedService}" />
+    </Grid>
+
+</Window>

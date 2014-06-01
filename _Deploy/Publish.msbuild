@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+  <Import Project="..\packages\MSBuildTasks.1.4.0.56\tools\MSBuild.Community.Tasks.Targets"/>
+  <Import Project="..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.tasks"/>
+   <Import Project="Parameters.msbuild"/>
+	
+  <Target Name="Publish" >
+  
+      <!--
+	  Build solution - MSBuild calls itself via an MSbuild task  - http://msdn.microsoft.com/en-us/library/vstudio/z7f65y0d.aspx
+	  
+	  $(Solution) refers to a variable - we set these in the Parameters file 
+	  
+	  Clean = delete existing dlls
+	  -->
+    <MSBuild Projects="..\$(Solution).sln" Targets="Clean"/>
+	
+	
+	<!--
+	
+	http://stackoverflow.com/questions/4041836/team-build-publish-locally-using-msdeploy
+	
+	AutoParameterizationWebConfigConnectionStrings - http://zvolkov.com/clog/2010/05/18?s=How+to+Publish+Web+Site+project+using+VS2010+and+MsBuild
+	-->
+	 <MSBuild Projects="..\$(Solution).sln" Targets="Build" Properties="Configuration=Release;DeployOnBuild=true;DeployTarget=Package;OutDir=..\_Drop;AutoParameterizationWebConfigConnectionStrings=False"
+	 />
+
+	 
+  </Target>
+  </Project>

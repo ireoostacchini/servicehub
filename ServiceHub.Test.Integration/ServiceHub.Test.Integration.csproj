@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41CCE7A8-570F-4878-A87B-FB5EA3D2679A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceHub.Test.Integration</RootNamespace>
+    <AssemblyName>ServiceHub.Test.Integration</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\ServiceHub\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.COMAdmin">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\Interop.COMAdmin.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Interop.IWshRuntimeLibrary">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\Interop.IWshRuntimeLibrary.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.0.10827\lib\NET40\Moq.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.BizTalk">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.BizTalk.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Iis7">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Iis7.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Loggers">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Loggers.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Sql2005">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Sql2005.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Sql2008">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Sql2008.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Sql2012">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Sql2012.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.StyleCop">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.StyleCop.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Sync">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Sync.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.TaskFactory.Dlr">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.TaskFactory.Dlr.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.TaskFactory.PowerShell">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.TaskFactory.PowerShell.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Tfs">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Tfs.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Tfs2010">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Tfs2010.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.Tfs2012">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.Tfs2012.dll</HintPath>
+    </Reference>
+    <Reference Include="MSBuild.ExtensionPack.WindowsVirtualPC">
+      <HintPath>..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.WindowsVirtualPC.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.0.1.10\lib\net40\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\TestUnitOfWork.cs" />
+    <Compile Include="Helpers\DataLoader.cs" />
+    <Compile Include="Container.cs" />
+    <Compile Include="Infrastructure\TestLogger.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceHub.DataAccess.Interfaces\ServiceHub.DataAccess.Interfaces.csproj">
+      <Project>{e8c726ae-d52e-4df1-8045-084689fbe20c}</Project>
+      <Name>ServiceHub.DataAccess.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.DataAccess\ServiceHub.DataAccess.csproj">
+      <Project>{8EC12511-FAC6-48C2-A82F-6C762897E6F1}</Project>
+      <Name>ServiceHub.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.DataContracts\ServiceHub.DataContracts.csproj">
+      <Project>{aa6172ee-c992-4eb9-8e32-7ac1e3b1619c}</Project>
+      <Name>ServiceHub.DataContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.DataService.Application.Interfaces\ServiceHub.DataService.Application.Interfaces.csproj">
+      <Project>{d5730743-0c86-4e0a-8f47-4604894643ee}</Project>
+      <Name>ServiceHub.DataService.Application.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.DataService.Application\ServiceHub.DataService.Application.csproj">
+      <Project>{4189045b-854c-4d49-b3bf-f88de14c3009}</Project>
+      <Name>ServiceHub.DataService.Application</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.DataService.WebAPI\ServiceHub.DataService.WebAPI.csproj">
+      <Project>{4f387d93-d977-4685-882d-ff320f66cea7}</Project>
+      <Name>ServiceHub.DataService.WebAPI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.Infrastructure.Interfaces\ServiceHub.Infrastructure.Interfaces.csproj">
+      <Project>{3f364f50-4635-4cee-8029-a44581dcc5dc}</Project>
+      <Name>ServiceHub.Infrastructure.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.Infrastructure\ServiceHub.Infrastructure.csproj">
+      <Project>{6D821F2C-5044-4F70-A0C3-C83402F27C0B}</Project>
+      <Name>ServiceHub.Infrastructure</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.Model\ServiceHub.Model.csproj">
+      <Project>{7CCEEC8E-A739-4974-8CCC-76348F0D1623}</Project>
+      <Name>ServiceHub.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.Test.Common\ServiceHub.Test.Common.csproj">
+      <Project>{5100dd18-52e4-4ca3-a482-2785753075d9}</Project>
+      <Name>ServiceHub.Test.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.UI.Win\ServiceHub.UI.Win.csproj">
+      <Project>{276cc229-bcee-433e-a2ca-80cff6abf0fc}</Project>
+      <Name>ServiceHub.UI.Win</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Application.Server\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

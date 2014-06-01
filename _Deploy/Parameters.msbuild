@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+
+
+		<!--the build file is in a subfolder of the solution folder - here's how we get the parent (root) folder-->
+		<ParentFolder>$([System.IO.Path]::GetDirectoryName($(MSBuildProjectDirectory)))</ParentFolder>
+		
+		<!--Solution name-->
+		<Solution>ServiceHub</Solution>
+		<Project>ServiceHub.DataService.WebAPI</Project>
+
+	</PropertyGroup>
+</Project>

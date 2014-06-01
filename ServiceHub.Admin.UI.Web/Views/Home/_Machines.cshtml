@@ -1,0 +1,34 @@
+﻿<section id="machines-view" class="view">
+
+
+    <div class="row">
+        <div class="span2">
+
+            <ul>
+                <!-- ko foreach: machines -->
+
+                <li class="route-left" data-bind="css: { 'route-active': isSelected(), 'hidden':isNew() }">
+                    <a data-bind="text: model.FriendlyName, attr: { href: url }"></a>
+                </li>
+                <!-- /ko -->
+                <li class="route-left" >
+                    <a data-bind="attr: { href: config.hashes.machinesAdd }">Add...</a>
+                </li>
+            </ul>
+
+
+        </div>
+
+        <div class="span3">
+            <!-- ko if: selected -->
+            <!--we could have used afterRender: showSelectedElement as a template param
+                instead of fadeVisible:true - see showSelectedElement inthe VM  -->
+            <div class="selectedMachine"
+                data-bind=" fadeVisible: true, template: { name: 'machine', data: selected }">
+            </div>
+            <!-- /ko -->
+        </div>
+
+
+    </div>
+</section>

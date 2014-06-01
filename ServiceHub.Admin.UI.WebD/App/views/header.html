@@ -1,0 +1,26 @@
+﻿<header>
+
+    <div class="row" >
+        <h1 class="span12"><a href="#/" id="link-home" data-bind="text: app.title"></a></h1>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+
+            <div class="row">
+                <nav id="shell-top-view" class="main-nav">
+  
+                    <ul class="" data-bind="foreach: router.visibleRoutes">
+                        <li class="span2 route-top">
+                            <a data-bind="css: { activeRoute: isActive() }, attr: { href: hash }, text: name" href="#"></a>
+                        </li>
+                    </ul>
+
+                </nav>
+            </div>
+
+        </div>
+    </div>
+
+
+</header>

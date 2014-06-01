@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8EC12511-FAC6-48C2-A82F-6C762897E6F1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ServiceHub.DataAccess</RootNamespace>
+    <AssemblyName>ServiceHub.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\ServiceHub\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MigrationsContextFactory.cs" />
+    <Compile Include="MachineServiceRepository.cs" />
+    <Compile Include="DatabaseManager.cs" />
+    <Compile Include="EntityTypeConfigurations\MachineServiceConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\CredentialsConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\ServiceConfiguration.cs" />
+    <Compile Include="EntityTypeConfigurations\MachineConfiguration.cs" />
+    <Compile Include="Helpers\RepositoryFactories.cs" />
+    <Compile Include="Helpers\RepositoryProvider.cs" />
+    <Compile Include="IRepositoryProvider.cs" />
+    <Compile Include="Migrations\201301011552317_Initial.cs" />
+    <Compile Include="Migrations\201301011552317_Initial.Designer.cs">
+      <DependentUpon>201301011552317_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304171713538_rowversion-fixed.cs" />
+    <Compile Include="Migrations\201304171713538_rowversion-fixed.Designer.cs">
+      <DependentUpon>201304171713538_rowversion-fixed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201304250913119_rowVerisons-altered.cs" />
+    <Compile Include="Migrations\201304250913119_rowVerisons-altered.Designer.cs">
+      <DependentUpon>201304250913119_rowVerisons-altered.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Migrations\ConfigurationWithSeed.cs" />
+    <Compile Include="Migrations\DataSeeder.cs" />
+    <Compile Include="Repository.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceHub.DataAccess.Interfaces\ServiceHub.DataAccess.Interfaces.csproj">
+      <Project>{E8C726AE-D52E-4DF1-8045-084689FBE20C}</Project>
+      <Name>ServiceHub.DataAccess.Interfaces</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ServiceHub.Model\ServiceHub.Model.csproj">
+      <Project>{7CCEEC8E-A739-4974-8CCC-76348F0D1623}</Project>
+      <Name>ServiceHub.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201301011552317_Initial.resx">
+      <DependentUpon>201301011552317_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304171713538_rowversion-fixed.resx">
+      <DependentUpon>201304171713538_rowversion-fixed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201304250913119_rowVerisons-altered.resx">
+      <DependentUpon>201304250913119_rowVerisons-altered.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

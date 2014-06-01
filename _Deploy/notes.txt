@@ -1,0 +1,91 @@
+---------------------------
+Build process
+---------------------------
+
+Scenario: a web project in a solution that includes Entity Framework (EF), and also unit / integration test projects
+
+
+The process:
+
+
+	1 Download Nuget packages
+	
+	2 Build solution 
+	
+			in release config 
+			create artifacts, including transformations for web.config for each deployment platform
+			
+	3 Run unit tests
+		
+	4 Deploy to test server
+	
+			run web.config transformations
+			run EF migrations (recreate DB, seed with data)
+			Deploy files to the server
+			run system tests against server
+	
+	5 Integration tests
+	
+	6 Deploy to staging server (manual)
+	
+			run web.config transformations
+			run EF migrations (do not recreate DB, do not seed with data)
+			Deploy files to the server
+			run system tests against server
+	
+	7 Deploy to production server (manual) - would be the same as for the staging server
+	
+	
+---------------------------
+Notes:
+---------------------------
+
+	
+		Steps 1 - 5 are triggered by each source code commit
+		
+		Subsequent steps are performed manually - but in the same order. So, a version of an app that is deployed to staging must already have been deployed to test
+		
+		We only build in step 2 - the same binaries are used (via stored artifacts) on all deployments
+		
+		Step 2 runs EF migrations to prepare for integration testing
+		
+		Integration tests should not aim for coverage - just to test that components can interact. They can either be:
+		
+			- run at the end of step 3 (if they are few enough and fast enough)
+			- run on a schedule (eg every two hours?)
+			- run at the beginning of step 5
+
+			
+		We use the Test server's database for integration tests - that's why the follow the DB update (in step 2).
+	
+		Developers should take care not to change the DB state in integration tests (they can call the database sed method)
+		 
+		 System tests are currently read-only - just to show that the system is up and running. If they become more substantial, we can split them into system / smoke tests (with the latter read-only, to be performed on staging / production servers)
+
+
+
+			
+---------------------------
+Operational notes:
+---------------------------		
+			
+			
+	Unit tests
+	
+		take care to avoid running tests in \obj\ folders - exclude **\obj\**
+			
+To make a web config transfrom:
+
+	create a new Configuration called Test - base it on the Release configuration, and do create new project configurations (there's a checkbox)
+	right click on teh web.config -> Add config transform
+	modify the config file:
+	
+		http://msdn.microsoft.com/en-gb/library/dd465318%28v=vs.100%29.aspx
+
+	Install web deploy + wb deploy for hosting servers on the build / web servers (use  msi file, custom install, add all options)
+	
+	
+	
+	
+			
+			

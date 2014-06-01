@@ -1,0 +1,46 @@
+﻿@using System.Web.Optimization
+
+    <!--
+    When bundling, load in this sequence:
+    1) shivs and jQuery
+    2) 3rd party libraries
+    3) require.js
+    4) your app libraries
+    5) main.js 
+    -->
+
+    <!--third party libraries-->
+    @Scripts.Render("~/scripts/vendor")
+
+
+    
+@*@Scripts.Render(
+        "~/bundles/jquery",
+        "~/bundles/jsextlibs",
+        "~/Scripts/lib/require.js",
+        "~/bundles/jsapplibs",
+        "~/bundles/jsmocks", // remove mocks for release
+        "~/Scripts/main.js"
+    )*@
+
+
+
+
+<script>
+    var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+    (function (d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+        s.parentNode.insertBefore(g, s)
+    }(document, 'script'));
+</script>
+
+    <!--governed by debug=true in web.config-->
+    @if (HttpContext.Current.IsDebuggingEnabled)
+    {
+        <script type="text/javascript" src="~/App/durandal/amd/require.js" data-main="@Url.Content("~/App/main")"></script>
+    }
+    else
+    {
+        <script type="text/javascript" src="~/App/main-built.js"></script>
+    }

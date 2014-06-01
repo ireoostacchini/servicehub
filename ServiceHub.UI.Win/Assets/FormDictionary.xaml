@@ -1,0 +1,259 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:my="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Window-->
+    <Style TargetType="{x:Type Window}"
+           x:Key="window">
+        <Setter Property="Control.Width"
+                Value="600" />
+        <Setter Property="Control.Height"
+                Value="800" />
+        <Setter Property="Control.Background"
+                Value="LightGray" />
+    </Style>
+
+    <!-- Grid-->
+    <Style x:Key="grid">
+
+    </Style>
+
+    <!-- Header-->
+    <Style x:Key="formHeader">
+        <Setter Property="Control.FontWeight"
+                Value="Bold" />
+        <Setter Property="Control.FontSize"
+                Value="18" />
+        <Setter Property="Control.Width"
+                Value="120" />
+        <Setter Property="Control.Height"
+                Value="40" />
+        <Setter Property="Control.HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Control.Margin"
+                Value="12,12,0,0" />
+        <Setter Property="Control.VerticalAlignment"
+                Value="Top" />
+    </Style>
+
+    <!--DataGrid-->
+    <Style TargetType="{x:Type DataGrid}"
+           x:Key="dataGrid">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Control.HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="AlternatingRowBackground"
+                Value="#FFF0F0F0" />
+        <Setter Property="Margin"
+                Value="25,75,0,170" />
+        <Setter Property="BorderBrush"
+                Value="Transparent" />
+        <Setter Property="HeadersVisibility"
+                Value="Column" />
+        <Setter Property="GridLinesVisibility"
+                Value="None" />
+        <Setter Property="Height"
+                Value="500" />
+        <Setter Property="SelectionUnit"
+                Value="FullRow" />
+        <Setter Property="IsReadOnly"
+                Value="True" />
+        <Setter Property="AutoGenerateColumns"
+                Value="False" />
+        
+    </Style>
+
+    <!-- Default -->
+    <Style x:Key="dataGridStatusTextColumn"
+           TargetType="{x:Type TextBlock}">
+        <Style.Setters>
+            <!-- Default -->
+            <Setter Property="Foreground"
+                    Value="Red" />
+        </Style.Setters>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding StatusName}"
+                         Value="Running">
+                <Setter Property="Foreground"
+                        Value="Green" />
+            </DataTrigger>
+
+        </Style.Triggers>
+    </Style>
+
+
+    
+    <!-- datagrid row-->
+ 
+        <Style TargetType="{x:Type DataGridRow}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsVisible}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Collapsed" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
+
+    <!-- Restart button-->
+    <Style TargetType="{x:Type Button}"
+           x:Key="restartButton">
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Width"
+                Value="20" />
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="Background"
+                Value="#FF8EA1C9"></Setter>
+        
+        
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsRestarting}"
+                         Value="False">
+                <Setter Property="Visibility"
+                        Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsRestarting}"
+                         Value="True">
+                <Setter Property="Visibility"
+                        Value="Hidden" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Restart loader-->
+    <Style TargetType="{x:Type UserControl}"
+           x:Key="restartLoader">
+        <Setter Property="HorizontalAlignment"
+                Value="Center"></Setter>
+          <Setter Property="VerticalAlignment"
+                Value="Center"></Setter>      
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Path=IsRestarting}"
+                         Value="True">
+                <Setter Property="Visibility"
+                        Value="Visible" />
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Path=IsRestarting}"
+                         Value="False">
+                <Setter Property="Visibility"
+                        Value="Hidden" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--DataGrid text column-->
+    <Style TargetType="{x:Type TextBlock}"
+           x:Key="dataGridTextColumn">
+        <Setter Property="TextBlock.TextWrapping"
+                Value="Wrap" />
+    </Style>
+
+    <!--DataGrid column header - for restart column-->
+
+    <Style x:Key="restartColumnHeader"
+           TargetType="{x:Type DataGridColumnHeader}">
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+    </Style>
+
+    
+    
+    
+    
+    
+    
+    <!--generic styles-->
+
+    <!-- button-->
+    <Style TargetType="{x:Type Button}"
+          >
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Width"
+                Value="20" />
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left"></Setter>
+        <Setter Property="VerticalAlignment"
+                Value="Top"></Setter>
+        <Setter Property="Background"
+                Value="#FF8EA1C9"></Setter>
+    </Style>
+
+    <!-- label-->
+    <Style TargetType="{x:Type Label}">
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Height"
+                Value="28" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left"></Setter>
+        <Setter Property="VerticalAlignment"
+                Value="Top"></Setter>
+
+    </Style>
+
+    <!-- check box-->
+    <Style TargetType="{x:Type CheckBox}">
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Height"
+                Value="16" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left"></Setter>
+        <Setter Property="VerticalAlignment"
+                Value="Top"></Setter>
+    </Style>
+    
+    
+    <!-- combo box-->
+    <Style TargetType="{x:Type ComboBox}">
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Height"
+                Value="23" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left"></Setter>
+        <Setter Property="VerticalAlignment"
+                Value="Top"></Setter>
+    </Style>
+    
+    
+    
+    <!-- Datagrid cell-->
+    <Style  TargetType="{x:Type DataGridCell}">
+
+        <Setter Property="MinHeight"
+                Value="30" />
+
+        <Setter Property="Focusable"
+                Value="False" />
+        <Style.Triggers>
+
+            <Trigger Property="DataGridCell.IsSelected"
+                     Value="True">
+                <Setter Property="Background"
+                        Value="#FFD6E4F4" />
+                <Setter Property="Foreground"
+                        Value="Black" />
+
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

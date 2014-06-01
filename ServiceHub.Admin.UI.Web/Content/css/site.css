@@ -1,0 +1,271 @@
+﻿/*************** LESS variables */
+/*************** HTML RESET */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+/*************** Elements */
+html {
+  padding: 0 0;
+  color: #000000;
+  overflow: scroll;
+}
+body {
+  background: #b8b9ef;
+  font-size: 18px;
+  margin: 1.5% auto;
+  max-width: 1100px;
+}
+header,
+footer,
+nav,
+section {
+  display: block;
+}
+fieldset {
+  border: 1px solid #ddd;
+  padding: 0 1.4em 1.4em 1.4em;
+  margin: 0 0 1.5em 0;
+}
+legend {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+textarea {
+  min-height: 75px;
+}
+/*page header*/
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+/*************** Links */
+a {
+  cursor: pointer;
+  color: #000000;
+  padding-bottom: 2px;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+/* Fonts */
+body,
+button,
+input,
+textarea,
+select {
+  font-size: 100%;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+li {
+  list-style-type: none;
+}
+/***************classes*/
+.view {
+  display: none;
+  margin-top: 3%;
+}
+.view a {
+  color: #000000;
+}
+/*header*/
+/*top nav */
+.main-nav {
+  margin-bottom: 10px;
+}
+.main-nav ul {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+}
+li.route-top {
+  font-weight: bold;
+  display: inline;
+  margin-right: 4%;
+}
+li.route-top a {
+  color: #000000;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+li.route-top a:hover {
+  color: #7273b8;
+}
+li.route-active a {
+  background-color: #a1a2d4;
+  color: #000000;
+}
+li.route-active a:hover {
+  color: #000000;
+}
+a#link-home:hover {
+  color: #000000;
+}
+/*left nav*/
+li.route-left {
+  padding: 2px;
+  width: 175px;
+}
+li.route-left:hover {
+  background-color: #a1a2d4;
+}
+li.route-left a {
+  display: block;
+}
+.editor-label {
+  margin: 1em 0 0 0;
+}
+.editor-field {
+  margin: 0.5em 0 0 0;
+}
+/* validation*/
+.field-validation-error {
+  color: #980c0c;
+}
+.field-validation-valid {
+  display: none;
+}
+.input-validation-error {
+  border: 1px solid #980c0c;
+  background-color: none;
+}
+.validation-summary-errors {
+  font-weight: bold;
+  color: #980c0c;
+}
+.validation-summary-valid {
+  display: none;
+}
+/*Toastr Overrides */
+.toast {
+  font-weight: bold;
+}
+/*************** Specific elements*/
+#loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -8px;
+  margin-left: -8px;
+}
+/* #region Responsive Design */
+@media only screen and (max-width: 1000px) {
+  
+}
+@media only screen and (max-width: 900px) {
+  
+}
+@media only screen and (max-width: 800px) {
+  
+}
+@media only screen and (max-width: 480px) {
+  
+}
+@media only screen and (max-width: 320px) {
+  
+}
+@media only screen and (max-width: 240px) {
+  
+}
+@media only screen and (max-height: 768px) {
+  
+}
+/* #endregion */

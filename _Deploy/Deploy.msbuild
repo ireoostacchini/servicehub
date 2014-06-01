@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Deploy" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+
+	<Import Project="..\packages\MSBuildTasks.1.4.0.56\tools\MSBuild.Community.Tasks.Targets"/>
+	<Import Project="..\packages\MSBuild.Extension.Pack.1.1.0\lib\net40\MSBuild.ExtensionPack.tasks"/>
+	<Import Project="Parameters.msbuild"/>
+
+
+
+	<PropertyGroup>
+	
+	
+		<Source>$(ParentFolder)\$(Project)</Source>
+
+		<!-- Destination is filled in by an env parameter in  TeamCity. 
+		
+			we hard-code the Destination folder - when deploying to other servers, we'll do it via file share, to avoid complex IIS permissions issues
+			We'll have to set up the site first in IIS
+			
+		-->
+
+		<DestinationFolder>D:\My Documents\www\$(Project).Test</DestinationFolder>
+		
+		<MSDeployExePath>C:\Program Files\IIS\Microsoft Web Deploy V3\msdeploy.exe</MSDeployExePath>
+		
+		<!--we need to skip the logs folder, as the current log file is locked, and cannot be deleted-->
+		<SkipSwitch>-skip:objectName=dirPath,absolutePath="\\logs"</SkipSwitch>
+	</PropertyGroup>
+
+
+
+
+	<!--
+	
+		takes a (Source) web site folder, and deploys it to the DestinationFolder
+	
+		the resulting command line should similar to:
+
+		msdeploy -verb:sync -source:contentPath=E:\Inetpub\wwwroot,computerName=sourcemachine -dest:contentPath=C:\Inetpub\wwroot -whatif > msdeploy.log
+	
+		see http://sedodream.com/2012/08/20/WebDeployMSDeployHowToSyncAFolder.aspx
+		
+		use ' to wrap the Command - allows us to use " within it, to deal with spaces in paths
+		
+	-->
+	<Target Name="Deploy">
+	 
+ 
+		<Exec Command='"$(MSDeployExePath)" –verb:sync -source:contentPath="$(Source)" -dest:contentPath="$(DestinationFolder)" $(SkipSwitch)' ContinueOnError="false"/> 
+
+		 
+	</Target>
+
+
+</Project>

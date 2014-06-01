@@ -1,0 +1,291 @@
+﻿/*************** LESS variables */
+@font-family: Verdana,Arial,Helvetica,sans-serif;
+
+@background-color: #b8b9ef;
+
+@text-color: #000;
+@validation-fail-color: #980c0c;
+
+@route-background-color: #aaabe8;
+
+@route-color: #000;
+@route-hover-color: #7273B8;
+@route-active-background-color: #A1A2D4;
+@route-active-color: #000;
+@route-active-hover-color: #000;
+
+@route-left-hover-background-color: #A1A2D4;
+
+/*************** HTML RESET */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+/*override bootstrap*/
+
+
+
+/*************** Elements */
+
+html {
+    padding: 0 0;
+    color: @text-color;
+    overflow: scroll;
+}
+
+
+body {
+    background: @background-color;
+    font-size: 18px;
+    margin: 1.5% auto;
+}
+
+header, footer, nav, section {
+    display: block;
+}
+
+
+fieldset {
+    border: 1px solid #ddd;
+    padding: 0 1.4em 1.4em 1.4em;
+    margin: 0 0 1.5em 0;
+}
+
+legend {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+textarea {
+    min-height: 75px;
+}
+
+/*page header*/
+h1 {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+/*************** Links */
+a {
+    cursor: pointer;
+    color: @text-color;
+    padding-bottom: 2px;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: none;
+    }
+
+    &:active,
+    &:focus {
+    }
+}
+
+
+
+/* Fonts */
+body,
+button,
+input,
+textarea,
+select {
+    font-size: 100%;
+    font-family: @font-family;
+}
+
+li {
+    list-style-type: none;
+}
+
+
+
+/***************classes*/
+
+.view {
+    margin-top: 3%;
+
+    a {
+        color: @text-color;
+    }
+
+    > nav {
+    }
+}
+
+/*header*/
+
+
+/*top nav */
+
+.main-nav {
+    margin-bottom: 10px;
+    background-color: @route-background-color;
+}
+
+    .main-nav ul {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-top: 1px solid black;
+        border-bottom: 1px solid black;
+        overflow: auto;
+    }
+
+li.route-top {
+    font-weight: bold;
+    display: inline;
+}
+
+    li.route-top a {
+        color: @route-color;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        &:hover {
+            color: @route-hover-color;
+        }
+    }
+
+
+
+li.route-top a.activeRoute {
+    background-color: @route-active-background-color;
+    color: @route-active-color;
+
+    &:hover {
+        color: @route-active-hover-color;
+    }
+}
+
+
+
+a#link-home {
+    &:hover {
+        color: @route-color;
+    }
+}
+
+
+
+
+/*left nav*/
+
+li.route-left {
+    padding: 2px;
+
+
+    &:hover {
+        background-color: @route-left-hover-background-color;
+    }
+}
+
+    li.route-left a {
+        display: block;
+    }
+
+
+
+
+.editor-label {
+    margin: 1em 0 0 0;
+}
+
+.editor-field {
+    margin: 0.5em 0 0 0;
+}
+
+
+
+
+/* validation*/
+
+.field-validation-error {
+    color: @validation-fail-color;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+.input-validation-error {
+    border: 1px solid @validation-fail-color;
+    background-color: none;
+}
+
+.validation-summary-errors {
+    font-weight: bold;
+    color: @validation-fail-color;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+
+/*Toastr Overrides */
+.toast {
+    font-weight: bold;
+}
+
+
+
+
+/*************** Specific elements*/
+
+#loader {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -8px;
+    margin-left: -8px;
+}
+
+
+
+
+
+
+
+/* #region Responsive Design - as defined by bootstrap */
+
+/* Large desktop */
+@media (min-width: 1200px) {
+}
+
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) {
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) {
+    h1 {
+        font-size: 24px;
+    }
+
+    li.route-top {
+        font-size: 14px;
+    }
+}
+
+/* Landscape phones and down */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 16px;
+    }
+
+    li.route-top {
+        font-size: 12px;
+    }
+}
+/* #endregion */

@@ -1,0 +1,23 @@
+﻿<div>
+    
+
+        
+<!--         <pre data-bind="text: ko.toJSON($data, null, 2)"></pre>-->
+
+   
+
+    
+    <label for="sn">Name: </label>
+    <input id="sn" type="text" data-bind="value: model.Name" placeholder="Name" />
+
+    <label for="fn">FriendlyName: </label>
+    <input id="fn" type="text" data-bind="value: model.FriendlyName" placeholder="FriendlyName" />
+
+    <label for="c">Credentials: </label>
+    <select id="c" data-bind="options: getCredentialsList(), optionsText: 'Username', optionsValue: 'CredentialsId', value: model.CredentialsId"></select>
+    
+
+    <button data-bind="command: saveCmd" class="btn-primary">Save</button>
+    <button data-bind="command: selectCancelCmd()" class="btn-primary">Cancel</button>
+    <button data-bind="command: deleteCmd, visible:!isNew()" class="btn-primary">Delete</button>
+</div>
